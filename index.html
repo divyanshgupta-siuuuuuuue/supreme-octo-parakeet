@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CODE REALME NONSTOP</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:#07010f;
+    color:white;
+    overflow:hidden;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+.sidebar{
+    width:90px;
+    height:100vh;
+    background:#12051f;
+    border-right:1px solid rgba(255,255,255,0.08);
+    position:fixed;
+    left:0;
+    top:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:20px;
+    z-index:999;
+}
+
+.logo{
+    width:58px;
+    height:58px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#facc15,#7e22ce);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    font-size:22px;
+    font-family:'Orbitron',sans-serif;
+    color:black;
+    margin-bottom:40px;
+    box-shadow:0 0 25px rgba(250,204,21,0.5);
+}
+
+.navbtn{
+    width:65px;
+    height:65px;
+    border-radius:20px;
+    background:#1a0a2b;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.08);
+    font-size:12px;
+    text-align:center;
+    font-weight:600;
+}
+
+.navbtn:hover{
+    transform:scale(1.08);
+    background:#2c1145;
+    border:1px solid #facc15;
+}
+
+.main{
+    margin-left:90px;
+    width:calc(100vw - 90px);
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+
+.page{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    overflow:auto;
+    padding:30px;
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.card{
+    background:#14091f;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:25px;
+    padding:20px;
+}
+
+input,textarea,select{
+    width:100%;
+    background:#1c0f2d;
+    border:none;
+    color:white;
+    padding:14px;
+    border-radius:14px;
+    margin-top:10px;
+    outline:none;
+}
+
+button{
+    background:linear-gradient(135deg,#facc15,#f59e0b);
+    color:black;
+    border:none;
+    padding:14px 20px;
+    border-radius:14px;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.projectFile{
+    padding:14px;
+    background:#1d1130;
+    border-radius:14px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.terminal{
+    background:black;
+    color:#00ff7b;
+    font-family:monospace;
+    height:300px;
+    overflow:auto;
+    padding:15px;
+    border-radius:20px;
+}
+
+.meetVideo{
+    width:100%;
+    height:300px;
+    background:black;
+    border-radius:20px;
+    object-fit:cover;
+}
+
+.topbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.title{
+    font-size:32px;
+    font-family:'Orbitron',sans-serif;
+    font-weight:900;
+    background:linear-gradient(90deg,#facc15,#a855f7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.logoPreview{
+    width:120px;
+    height:120px;
+    border-radius:25px;
+    object-fit:cover;
+    border:2px solid #facc15;
+}
+
+.friend{
+    background:#1d1130;
+    padding:14px;
+    border-radius:16px;
+    margin-top:12px;
+}
+
+.linkbox{
+    background:black;
+    color:#00ff7b;
+    padding:14px;
+    border-radius:14px;
+    font-family:monospace;
+    margin-top:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+CR
+</div>
+
+<div class="navbtn" onclick="openPage('dashboardPage')">
+HOME
+</div>
+
+<div class="navbtn" onclick="openPage('profilePage')">
+PROFILE
+</div>
+
+<div class="navbtn" onclick="openPage('socialPage')">
+SOCIALS
+</div>
+
+<div class="navbtn" onclick="openPage('projectsPage')">
+PROJECTS
+</div>
+
+<div class="navbtn" onclick="openPage('compilerPage')">
+COMPILER
+</div>
+
+<div class="navbtn" onclick="openPage('linksPage')">
+LINKS
+</div>
+
+<div class="navbtn" onclick="openPage('meetPage')">
+LIVE
+</div>
+
+</div>
+
+<div class="main">
+
+<!-- DASHBOARD -->
+
+<div class="page active" id="dashboardPage">
+
+<div class="topbar">
+<div class="title">CODE REALME NONSTOP</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+<div class="card">
+<h2 class="text-2xl font-bold">Realtime Projects</h2>
+<p class="mt-3 text-gray-400">
+Infinite fullstack coding workspace.
+</p>
+</div>
+
+<div class="card">
+<h2 class="text-2xl font-bold">Live Multiplayer</h2>
+<p class="mt-3 text-gray-400">
+Voice chat, facecam, screen sharing.
+</p>
+</div>
+
+<div class="card">
+<h2 class="text-2xl font-bold">Compiler Engine</h2>
+<p class="mt-3 text-gray-400">
+Terminal + live syntax detection.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- PROFILE -->
+
+<div class="page" id="profilePage">
+
+<div class="topbar">
+<div class="title">PROFILE</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="card">
+
+<h2 class="text-2xl font-bold mb-5">
+Create Profile
+</h2>
+
+<input id="username" placeholder="Username">
+
+<textarea id="bio" placeholder="Bio"></textarea>
+
+<input type="file" id="profileLogo">
+
+<button onclick="createProfile()">
+Create Profile
+</button>
+
+</div>
+
+<div class="card">
+
+<img id="profilePreview" class="logoPreview"
+src="https://placehold.co/300x300/1a0b2d/facc15?text=LOGO">
+
+<h2 id="profileName" class="text-3xl font-bold mt-5">
+Awaiting User
+</h2>
+
+<p id="profileBio" class="mt-3 text-gray-400">
+No bio yet.
+</p>
+
+<div class="linkbox" id="socialId">
+CRN-XXXXXX
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SOCIAL -->
+
+<div class="page" id="socialPage">
+
+<div class="topbar">
+<div class="title">SOCIALS</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="card">
+
+<h2 class="text-2xl font-bold">
+Find Friends
+</h2>
+
+<input placeholder="Search Social ID">
+
+<button>
+Send Request
+</button>
+
+</div>
+
+<div class="card">
+
+<h2 class="text-2xl font-bold">
+Online Friends
+</h2>
+
+<div class="friend">
+DIVYANSH • ONLINE
+</div>
+
+<div class="friend">
+CRN-X72AB • IN PROJECT
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PROJECTS -->
+
+<div class="page" id="projectsPage">
+
+<div class="topbar">
+<div class="title">PROJECTS</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="card">
+
+<h2 class="text-2xl font-bold mb-5">
+Create Project
+</h2>
+
+<input id="projectName" placeholder="Project Name">
+
+<textarea id="projectDesc"
+placeholder="Description"></textarea>
+
+<input id="projectPurpose"
+placeholder="Purpose">
+
+<select id="projectPrivacy">
+<option>Public</option>
+<option>Private</option>
+</select>
+
+<button onclick="createProject()">
+Create Project
+</button>
+
+</div>
+
+<div class="card">
+
+<h2 class="text-2xl font-bold">
+Your Projects
+</h2>
+
+<div id="projectList"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- COMPILER -->
+
+<div class="page" id="compilerPage">
+
+<div class="topbar">
+<div class="title">ONE COMPILER</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="card">
+
+<h2 class="text-2xl font-bold mb-5">
+Project Files
+</h2>
+
+<input type="file" multiple id="projectFiles">
+
+<div id="filesList"></div>
+
+<textarea id="editor"
+style="height:350px;font-family:monospace;">
+console.log("CODE REALME");
+</textarea>
+
+<button onclick="runCode()">
+Compile
+</button>
+
+</div>
+
+<div class="card">
+
+<h2 class="text-2xl font-bold mb-5">
+Terminal
+</h2>
+
+<div class="terminal" id="terminal">
+> SYSTEM ONLINE
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- LINKS -->
+
+<div class="page" id="linksPage">
+
+<div class="topbar">
+<div class="title">LINKS</div>
+</div>
+
+<div class="card">
+
+<h2 class="text-2xl font-bold">
+Generate Project Link
+</h2>
+
+<input id="linkProjectName"
+placeholder="Project Name">
+
+<button onclick="generateLink()">
+Generate
+</button>
+
+<div class="linkbox" id="generatedLink">
+https://yourrender.onrender.com/project-x729
+</div>
+
+</div>
+
+</div>
+
+<!-- LIVE -->
+
+<div class="page" id="meetPage">
+
+<div class="topbar">
+<div class="title">
+LIVE AT ITS PEAK
+</div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div class="card">
+
+<video id="localVideo"
+class="meetVideo"
+autoplay muted playsinline></video>
+
+<button onclick="startCamera()">
+Start Camera
+</button>
+
+<button onclick="shareScreen()">
+Share Screen
+</button>
+
+</div>
+
+<div class="card">
+
+<video id="screenVideo"
+class="meetVideo"
+autoplay playsinline></video>
+
+<div class="mt-5">
+Google Meet Style Realtime Workspace
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openPage(id){
+
+document.querySelectorAll('.page').forEach(page=>{
+page.classList.remove('active');
+});
+
+document.getElementById(id).classList.add('active');
+
+window.location.hash=id;
+
+}
+
+function createProfile(){
+
+const username=document.getElementById('username').value;
+const bio=document.getElementById('bio').value;
+
+document.getElementById('profileName').innerText=username;
+document.getElementById('profileBio').innerText=bio;
+
+const social='CRN-'+Math.random().toString(36).substring(2,8).toUpperCase();
+
+document.getElementById('socialId').innerText=social;
+
+const file=document.getElementById('profileLogo').files[0];
+
+if(file){
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+document.getElementById('profilePreview').src=e.target.result;
+
+}
+
+reader.readAsDataURL(file);
+
+}
+
+}
+
+function createProject(){
+
+const name=document.getElementById('projectName').value;
+
+const div=document.createElement('div');
+
+div.className='projectFile';
+
+div.innerHTML=`
+<b>${name}</b>
+<br>
+Open Fullstack Workspace
+`;
+
+div.onclick=function(){
+
+openPage('compilerPage');
+
+};
+
+document.getElementById('projectList').appendChild(div);
+
+}
+
+document.getElementById('projectFiles').addEventListener('change',function(){
+
+const files=this.files;
+
+document.getElementById('filesList').innerHTML='';
+
+for(let file of files){
+
+const div=document.createElement('div');
+
+div.className='projectFile';
+
+div.innerText=file.name;
+
+document.getElementById('filesList').appendChild(div);
+
+}
+
+});
+
+function speak(text){
+
+const speech=new SpeechSynthesisUtterance(text);
+
+speech.lang='en-GB';
+
+window.speechSynthesis.speak(speech);
+
+}
+
+function runCode(){
+
+const code=document.getElementById('editor').value;
+
+const terminal=document.getElementById('terminal');
+
+terminal.innerHTML+=`
+<br>> COMPILING...
+`;
+
+if(code.includes("error")){
+
+terminal.innerHTML+=`
+<br>> SYNTAX ERROR FOUND
+`;
+
+speak("Syntax Error Found");
+
+}else{
+
+terminal.innerHTML+=`
+<br>> BUILD SUCCESSFUL
+`;
+
+}
+
+terminal.scrollTop=terminal.scrollHeight;
+
+}
+
+function generateLink(){
+
+const project=document.getElementById('linkProjectName').value;
+
+const random=Math.random().toString(36).substring(2,8);
+
+const link=`
+https://yourrender.onrender.com/project-${random}-${project}
+`;
+
+document.getElementById('generatedLink').innerText=link;
+
+}
+
+async function startCamera(){
+
+try{
+
+const stream=await navigator.mediaDevices.getUserMedia({
+video:true,
+audio:true
+});
+
+document.getElementById('localVideo').srcObject=stream;
+
+}catch(err){
+
+alert("Camera permission denied");
+
+}
+
+}
+
+async function shareScreen(){
+
+try{
+
+const stream=await navigator.mediaDevices.getDisplayMedia({
+video:true
+});
+
+document.getElementById('screenVideo').srcObject=stream;
+
+}catch(err){
+
+alert("Screen share cancelled");
+
+}
+
+}
+
+if(window.location.hash){
+
+const page=window.location.hash.replace('#','');
+
+openPage(page);
+
+}
+
+</script>
+
+</body>
+</html>
